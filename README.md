@@ -10,12 +10,24 @@ This repository contains polyfills for various JavaScript methods to ensure comp
 - `map()`: Polyfill included.
 - `filter()`: Polyfill included.
 - `reduce()`: Polyfill included.
-- `reduceRight()`: Polyfill included.
 - `some()`: Polyfill included.
 - `every()`: Polyfill included.
 - `find()`: Polyfill included.
 - `findIndex()`: Polyfill included.
 - `includes()`: Polyfill included.
+- `indexOf()`: Polyfill included.
+- `lastIndexOf()`: Polyfill included.
+- `slice()`: Polyfill included.
+- `concat()`: Polyfill included.
+- `join()`: Polyfill included.
+- `push()`: Polyfill included.
+- `pop()`: Polyfill included.
+- `shift()`: Polyfill included.
+- `unshift()`: Polyfill included.
+- `reverse()`: Polyfill included.
+- `sort()`: Polyfill included.
+- `splice()`: Polyfill included.
+
 
 ### String Methods
 
