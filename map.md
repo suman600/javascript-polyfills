@@ -8,20 +8,19 @@ To use the polyfill, simply include the following code snippet in your JavaScrip
 
 ```javascript
 if (!Array.prototype.myMap) {
-  Array.prototype.myMap = function(callback) {
-    // Check if the callback is a function
-    if (typeof callback !== 'function') {
-      throw new TypeError('Callback must be a function');
-    }
-
-    var mappedArray = [];
-    for (var i = 0; i < this.length; i++) {
-      mappedArray.push(callback(this[i], i, this));
-    }
-    return mappedArray;
-  };
+    Array.prototype.myMap = function(callback, thisArg) {
+        if (typeof callback !== "function") {
+            throw new TypeError(`${callback} is not a function`);
+        }
+        let result = [];
+        for (let i = 0; i < this.length; i++) {
+            if (i in this) {
+                result.push(callback.call(thisArg, this[i], i, this));
+            }
+        }
+        return result;
+    };
 }
-
 
 
 // Example usage
