@@ -8,20 +8,23 @@ To use the polyfill, simply include the following code snippet in your JavaScrip
 
 ```javascript
 if (!Array.prototype.myFilter) {
-  Array.prototype.myFilter = function(callback) {
-    // Check if the callback is a function
-    if (typeof callback !== 'function') {
-      throw new TypeError('Callback must be a function');
-    }
-    var filteredArray = [];
-    for (var i = 0; i < this.length; i++) {
-      if (callback(this[i], i, this)) {
-        filteredArray.push(this[i]);
-      }
-    }
-    return filteredArray;
-  };
+
+    Array.prototype.myFilter = function(callback, thisArg) {
+        if (typeof callback !== "function") {
+            throw new TypeError(`${callback} is not a function`);
+        }
+        let result = [];
+        for (let i = 0; i < this.length; i++) {
+            if (i in this) {
+                if (callback.call(thisArg, this[i], i, this)) {
+                    result.push(this[i]);  // Add element if callback returns true
+                }
+            }
+        }
+        return result;
+    };
 }
+
 
 // Example usage
 var numbers = [1, 2, 3, 4, 5];

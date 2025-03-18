@@ -7,27 +7,35 @@ This is a simple polyfill for the `find` method in JavaScript arrays.
 To use the polyfill, include the following code snippet in your JavaScript file:
 
 ```javascript
-Array.prototype.myFind = function(callback, thisArg) {
-    if (typeof callback !== 'function') {
-      throw new TypeError(callback + ' is not a function');
+if(!Array.prototype.myFind){
+    Array.prototype.myFind = function(callback, thisArg){
+        if(typeof callback !== 'function'){
+            throw new TypeError(`${callback} must be function`)
+        }
+        if(this == null){
+            throw new TypeError('myFind called on null data')
+        }
+        for(let i = 0; i<this.length;i++){
+            if(callback.call(thisArg, this[i], i, this)){
+                return this[i]
+            }
+        }
+        return undefined;
     }
-    
-    for (var i = 0; i < this.length; i++) {
-      if (callback.call(thisArg, this[i], i, this)) {
-        return this[i];
-      }
-    }
-    
-    return undefined;
-};
+}
 
 
-// Example array
-var numbers = [1, 2, 3, 4, 5];
+const numbers = [10, 20, 30, 40, 50];
 
-// Using the myFind method to find the first even number in the array
-var firstEvenNumber = numbers.myFind(function(num) {
-  return num % 2 === 0;
-});
+// Find the first number greater than 25
+const result = numbers.myFind((num) => num > 25);
+console.log(result); // Output: 30
 
-console.log(firstEvenNumber); // Output: 2
+const users = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 35 },
+];
+
+const foundUser = users.myFind((user) => user.name === "Bob");
+console.log(foundUser); // Output: { name: 'Bob', age: 30 }
