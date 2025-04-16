@@ -26,15 +26,13 @@ if (!Array.prototype.myFilter) {
 }
 
 
-// Example usage
+
 var numbers = [1, 2, 3, 4, 5];
 
-// Define a callback function to filter even numbers
 function isEven(num) {
   return num % 2 === 0;
 }
 
-// Use the polyfill myFilter function to filter even numbers from the array
 var evenNumbers = numbers.myFilter(isEven);
-
-console.log(evenNumbers); // Output: [2, 4]
+console.log(evenNumbers); 
+// Output: [2, 4]

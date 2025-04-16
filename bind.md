@@ -23,20 +23,17 @@ if (!Function.prototype.myBind) {
   };
 }
 
-// ✅ Test function
+
 function introduce(greeting, ending) {
   console.log(`${greeting}, I'm ${this.name} ${ending}`);
 }
 
-// ✅ Test object
 const person = { name: "Charlie" };
 
-// ✅ Test: Fully bind all arguments upfront
 const boundIntroduce = introduce.myBind(person, "Hello", "Nice to meet you!");
 boundIntroduce(); 
 // Output: "Hello, I'm Charlie Nice to meet you!"
 
-// ✅ Test: Partial bind with extra arguments later
 const partiallyBoundIntroduce = introduce.myBind(person, "Hey");
 partiallyBoundIntroduce("how's it going?");
 // Output: "Hey, I'm Charlie how's it going?"

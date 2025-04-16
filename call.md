@@ -3,7 +3,6 @@
 This is a simple polyfill for the `call` method in JavaScript arrays.
 
 ## Usage
-
 To use the polyfill, include the following code snippet in your JavaScript file:
 
 ```javascript
@@ -21,13 +20,12 @@ if (!Function.prototype.myCall) {
   };
 }
 
-// Test function
+
 function sayHello(greeting) {
   console.log(`${greeting}, ${this.name}`);
 }
 
-// Test object
 const user = { name: "Alice" };
 
-// Use our custom myCall method
-sayHello.myCall(user, "Hello"); // Output: "Hello, Alice"
+sayHello.myCall(user, "Hello"); 
+//  Output: "Hello, Alice"

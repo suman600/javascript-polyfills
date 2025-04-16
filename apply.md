@@ -24,7 +24,8 @@ if (!Function.prototype.myApply) {
   };
 }
 
-// ✅ Test the polyfill
+
+
 function logMessage(prefix, suffix) {
   console.log(`${prefix} ${this.name} ${suffix}`);
 }
@@ -32,7 +33,6 @@ function logMessage(prefix, suffix) {
 const user1 = { name: "Alice" };
 const user2 = { name: "Bob" };
 
-// ✅ Using the custom apply method
 logMessage.myApply(user1, ["Hello,", "how are you?"]);
 // Output: Hello, Alice how are you?
 

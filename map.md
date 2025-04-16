@@ -23,15 +23,14 @@ if (!Array.prototype.myMap) {
 }
 
 
-// Example usage
+
 var numbers = [1, 2, 3, 4, 5];
 
-// Define a callback function to double each element
 function double(num) {
   return num * 2;
 }
 
-// Use the polyfill myMap function to double each element of the array
 var doubledNumbers = numbers.myMap(double);
 
-console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+console.log(doubledNumbers); 
+// Output: [2, 4, 6, 8, 10]

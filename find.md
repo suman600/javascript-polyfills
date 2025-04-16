@@ -3,7 +3,6 @@
 This is a simple polyfill for the `find` method in JavaScript arrays.
 
 ## Usage
-
 To use the polyfill, include the following code snippet in your JavaScript file:
 
 ```javascript
@@ -27,9 +26,9 @@ if(!Array.prototype.myFind){
 
 const numbers = [10, 20, 30, 40, 50];
 
-// Find the first number greater than 25
 const result = numbers.myFind((num) => num > 25);
-console.log(result); // Output: 30
+console.log(result); 
+// Output: 30
 
 const users = [
   { name: "Alice", age: 25 },
@@ -38,4 +37,5 @@ const users = [
 ];
 
 const foundUser = users.myFind((user) => user.name === "Bob");
-console.log(foundUser); // Output: { name: 'Bob', age: 30 }
+console.log(foundUser); 
+// Output: { name: 'Bob', age: 30 }
